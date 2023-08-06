@@ -13,7 +13,11 @@ const props = defineProps([
   <div class="taskItems">
     <ul>
       <li v-for="item in props.tasklist" v-bind:key="item.name">
-        <button :class="{ complete: item.complete }">{{ item.name }} {{ item.id }}</button>
+        <button :class="{ complete: item.complete }">
+          <span>{{ item.name }}</span>
+          <span> ----- </span>
+          <span>{{ item?.date }}</span>
+        </button>
         <button @click="deleteItem(item.id)"><i class="far fa-trash-alt"></i></button>
       </li>
     </ul>
