@@ -7,14 +7,18 @@ const tasklist = ref([
   {
     name: 'Watching Netflix',
     complete: true,
-    id: 0
+    id: 0,
+    date: '06-08-2023'
   },
-  { name: 'Learn Vue Js', complete: false, id: 1 }
+  { name: 'Learn Vue Js', complete: false, id: 1, date: '06-08-2023' }
 ])
 
 const addTodo = (item) => {
   console.log(item)
-  let add = [...tasklist.value, { name: item, complete: false, id: tasklist.value.length }]
+  let add = [
+    ...tasklist.value,
+    { name: item?.text, date: item.date, complete: false, id: tasklist.value.length }
+  ]
   tasklist.value = add
   numberOfCompelet.value = tasklist.value.filter((item) => item.complete == false).length
 }
